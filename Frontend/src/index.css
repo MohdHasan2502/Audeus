@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+
+}
+
+.html,body{
+  height:100% ;
+  width:100 ;
+  background-color: #FFFFFF;
+}
+ @font-face{
+  font-family: normal;
+  src: url('./assets/InterVariable.ff710c09.woff2')
+ }
+ @font-face{
+  font-family: semibold;
+  src: url('./assets/InterDisplay-SemiBold.d938fffb.woff2')
+ }
+ @font-face{
+  font-family: Regular;
+  src: url('./assets/InterDisplay-Regular.1e47cc70.woff2')
+ }
+ @font-face{
+  font-family: Medium;
+  src: url('./assets/InterDisplay-Medium.5a9db70e.woff2')
+ }
+ @font-face{
+  font-family: Bold;
+  src: url('./assets/InterDisplay-Bold.e11ef446.woff2')
+ }
+
+
+
+
+ @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer utilities {
+    @keyframes glow {
+      0% {
+        background-color: #ff9a9e; /* Pink */
+      }
+      25% {
+        background-color: #fad0c4; /* Light Peach */
+      }
+      50% {
+        background-color: #fbc2eb; /* Lavender */
+      }
+      75% {
+        background-color: #a18cd1; /* Soft Purple */
+      }
+      100% {
+        background-color: #ff9a9e; /* Pink (Cycle) */
+      }
+    }
+
+    .animate-glow {
+      animation: glow 4s infinite;
+    }
+  }
