@@ -4,7 +4,10 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
 const Signup = () => {
   const navigate = useNavigate();
 

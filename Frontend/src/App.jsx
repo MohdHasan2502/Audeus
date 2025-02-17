@@ -7,6 +7,7 @@ import Lifelike from "../src/components/Lifelike";
 import BlueBackground from "../src/components/BlueBackground";
 import FrequentQuestions from "./components/FrequentQuestions.jsx";
 import Footer from "../src/components/Footer";
+<<<<<<< HEAD
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,6 +17,12 @@ import {
 import Login from "../src/components/Login.jsx";
 import Signup from "../src/components/Signup.jsx";
 import UploadFile from "../src/components/UploadFile.jsx";
+=======
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "../src/components/Login.jsx";
+import Signup from "../src/components/Signup.jsx";
+import axios from "axios";
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
 
 const App = () => {
   // State for authentication status
@@ -38,17 +45,27 @@ const App = () => {
   return (
     <Router>
       <Routes>
+<<<<<<< HEAD
       <Route path="/uploadFile" element={<UploadFile />} />
+=======
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
         <Route
           path="/"
           element={
             <>
               <Header />
+<<<<<<< HEAD
               <HeaderTwo
                 isAuthenticated={isAuthenticated}
                 handleLogout={handleLogout}
               />
 
+=======
+              <HeaderTwo 
+                isAuthenticated={isAuthenticated} 
+                handleLogout={handleLogout} 
+              />
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
               <MainImg />
               <Videos />
               <Lifelike />
@@ -60,15 +77,24 @@ const App = () => {
         />
 
         {/* Login Page Route */}
+<<<<<<< HEAD
         <Route
           path="/login"
+=======
+        <Route 
+          path="/login" 
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
           element={
             isAuthenticated ? (
               <Navigate to="/" />
             ) : (
               <Login setIsAuthenticated={setIsAuthenticated} />
             )
+<<<<<<< HEAD
           }
+=======
+          } 
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
         />
 
         {/* Signup Page Route */}
