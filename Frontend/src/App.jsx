@@ -7,10 +7,16 @@ import Lifelike from "../src/components/Lifelike";
 import BlueBackground from "../src/components/BlueBackground";
 import FrequentQuestions from "./components/FrequentQuestions.jsx";
 import Footer from "../src/components/Footer";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Login from "../src/components/Login.jsx";
 import Signup from "../src/components/Signup.jsx";
-import axios from "axios";
+import UploadFile from "../src/components/UploadFile.jsx";
+import "./App.css";
 
 const App = () => {
   // State for authentication status
@@ -18,7 +24,7 @@ const App = () => {
 
   // Check for token in localStorage on initial load
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken"); // Updated from "token" to "authToken"
     if (token) {
       setIsAuthenticated(true);
     }
@@ -26,7 +32,7 @@ const App = () => {
 
   // Handle Logout
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("authToken"); // Updated from "token" to "authToken"
     setIsAuthenticated(false);
   };
 
@@ -54,18 +60,30 @@ const App = () => {
 
         {/* Login Page Route */}
         <Route 
-          path="/login" 
+          path="/login"  
           element={
             isAuthenticated ? (
-              <Navigate to="/" />
+              <Navigate to="/uploadfile" />
             ) : (
               <Login setIsAuthenticated={setIsAuthenticated} />
             )
-          } 
+          }
         />
-
+ 
         {/* Signup Page Route */}
         <Route path="/signup" element={<Signup />} />
+
+        {/* UploadFile Route - Protected Route */}
+        <Route 
+          path="/uploadfile" 
+          element={
+            isAuthenticated ? (
+              <UploadFile />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
       </Routes>
     </Router>
   );

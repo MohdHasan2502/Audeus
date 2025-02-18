@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
+<<<<<<< HEAD
+
+=======
 const bcrypt = require('bcryptjs');
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
 
 const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
@@ -9,6 +13,13 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true }
 });
 
+<<<<<<< HEAD
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
+
+ 
+=======
 // Hash password before saving
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
@@ -17,3 +28,4 @@ userSchema.pre('save', async function (next) {
 });
 
 module.exports = mongoose.model('User', userSchema);
+>>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3

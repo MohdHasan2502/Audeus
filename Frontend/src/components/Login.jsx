@@ -25,7 +25,7 @@ const Login = () => {
         "http://localhost:3000/user/login",
         formData
       );
-      
+ 
       // Check if login is successful
       if (response.data.token) {
         localStorage.setItem("authToken", response.data.token);
@@ -33,9 +33,10 @@ const Login = () => {
           position: "top-right",
           autoClose: 3000,
         });
-        
-        // Redirect to main page after a short delay
-        setTimeout(() => navigate("/"), 3000);
+ 
+
+        navigate("/uploadfile");
+   
       } else {
         toast.error("Invalid username or password", {
           position: "top-right",
@@ -43,7 +44,11 @@ const Login = () => {
         });
       }
     } catch (error) {
+ 
+      console.error("Login error:", error.response ? error.response.data : error.message);
+ 
       console.error("Login error:", error);
+ 
       toast.error("Something went wrong. Please try again.", {
         position: "top-right",
         autoClose: 3000,
