@@ -7,7 +7,6 @@ import Lifelike from "../src/components/Lifelike";
 import BlueBackground from "../src/components/BlueBackground";
 import FrequentQuestions from "./components/FrequentQuestions.jsx";
 import Footer from "../src/components/Footer";
-<<<<<<< HEAD
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,12 +16,7 @@ import {
 import Login from "../src/components/Login.jsx";
 import Signup from "../src/components/Signup.jsx";
 import UploadFile from "../src/components/UploadFile.jsx";
-=======
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "../src/components/Login.jsx";
-import Signup from "../src/components/Signup.jsx";
-import axios from "axios";
->>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
+import "./App.css";
 
 const App = () => {
   // State for authentication status
@@ -30,7 +24,7 @@ const App = () => {
 
   // Check for token in localStorage on initial load
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken"); // Updated from "token" to "authToken"
     if (token) {
       setIsAuthenticated(true);
     }
@@ -38,34 +32,22 @@ const App = () => {
 
   // Handle Logout
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("authToken"); // Updated from "token" to "authToken"
     setIsAuthenticated(false);
   };
 
   return (
     <Router>
       <Routes>
-<<<<<<< HEAD
-      <Route path="/uploadFile" element={<UploadFile />} />
-=======
->>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
         <Route
           path="/"
           element={
             <>
               <Header />
-<<<<<<< HEAD
-              <HeaderTwo
-                isAuthenticated={isAuthenticated}
-                handleLogout={handleLogout}
-              />
-
-=======
               <HeaderTwo 
                 isAuthenticated={isAuthenticated} 
                 handleLogout={handleLogout} 
               />
->>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
               <MainImg />
               <Videos />
               <Lifelike />
@@ -77,28 +59,31 @@ const App = () => {
         />
 
         {/* Login Page Route */}
-<<<<<<< HEAD
-        <Route
-          path="/login"
-=======
         <Route 
-          path="/login" 
->>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
+          path="/login"  
           element={
             isAuthenticated ? (
-              <Navigate to="/" />
+              <Navigate to="/uploadfile" />
             ) : (
               <Login setIsAuthenticated={setIsAuthenticated} />
             )
-<<<<<<< HEAD
           }
-=======
-          } 
->>>>>>> 8aa62bad2ef001eb2148408f4f3324c5807d11a3
         />
-
+ 
         {/* Signup Page Route */}
         <Route path="/signup" element={<Signup />} />
+
+        {/* UploadFile Route - Protected Route */}
+        <Route 
+          path="/uploadfile" 
+          element={
+            isAuthenticated ? (
+              <UploadFile />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
       </Routes>
     </Router>
   );
