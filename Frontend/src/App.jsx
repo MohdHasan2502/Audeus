@@ -16,6 +16,7 @@ import {
 import Login from "../src/components/Login.jsx";
 import Signup from "../src/components/Signup.jsx";
 import UploadFile from "../src/components/UploadFile.jsx";
+import Reader from "./components/Reader.jsx";
 import "./App.css";
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
 
   // Check for token in localStorage on initial load
   useEffect(() => {
-    const token = localStorage.getItem("authToken"); // Updated from "token" to "authToken"
+    const token = localStorage.getItem("authToken");
     if (token) {
       setIsAuthenticated(true);
     }
@@ -32,7 +33,7 @@ const App = () => {
 
   // Handle Logout
   const handleLogout = () => {
-    localStorage.removeItem("authToken"); // Updated from "token" to "authToken"
+    localStorage.removeItem("authToken");
     setIsAuthenticated(false);
   };
 
@@ -69,16 +70,16 @@ const App = () => {
             )
           }
         />
- 
+
         {/* Signup Page Route */}
         <Route path="/signup" element={<Signup />} />
 
-        {/* UploadFile Route - Protected Route */}
+        {/* Protected Routes */}
         <Route 
-          path="/uploadfile" 
+          path="/uploadfile/*" 
           element={
             isAuthenticated ? (
-              <UploadFile />
+              <ProtectedRoutes />
             ) : (
               <Navigate to="/login" />
             )
@@ -86,6 +87,16 @@ const App = () => {
         />
       </Routes>
     </Router>
+  );
+};
+
+// Component for handling protected routes
+const ProtectedRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<UploadFile />} />
+      <Route path="/reader" element={<Reader />} />
+    </Routes>
   );
 };
 
