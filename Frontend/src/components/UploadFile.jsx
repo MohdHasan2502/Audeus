@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Logo from "./../../IMG/icon.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import HomeIcon from "@mui/icons-material/Home";
@@ -12,6 +13,7 @@ const UploadFile = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const fileInput = useRef(null);
   const navigate = useNavigate();
+
 
   const OpenMenu = () => setToggle((prev) => !prev);
   const OpenDocFolder = () => fileInput.current?.click();
@@ -37,9 +39,12 @@ const UploadFile = () => {
       console.error("No valid file found.");
       return;
     }
-    console.log("Navigating with file URL:", file.preview); // Debugging Log
-    navigate("/uploadfile/reader", { state: { fileUrl: file.preview } });
+  
+    // Save the file preview URL to localStorage
+    localStorage.setItem("fileUrl", file.preview);
+    navigate("/uploadfile/reader");
   };
+  
   
   
   return (

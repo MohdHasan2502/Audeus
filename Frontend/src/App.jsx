@@ -90,6 +90,7 @@ const App = () => {
   );
 };
 
+
 // Component for handling protected routes
 const ProtectedRoutes = () => {
   return (
