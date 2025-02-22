@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../src/components/Header";
-import HeaderTwo from "../src/components/HeaderTwo.jsx";
+import HeaderTwo from "../src/components/HeaderTwo";
 import MainImg from "../src/components/MainImg";
 import Videos from "../src/components/Videos";
 import Lifelike from "../src/components/Lifelike";
@@ -44,11 +44,9 @@ const App = () => {
           path="/"
           element={
             <>
-              <Header />
-              <HeaderTwo 
-                isAuthenticated={isAuthenticated} 
-                handleLogout={handleLogout} 
-              />
+              <Header isAuthenticated={isAuthenticated} 
+                handleLogout={handleLogout}/>
+              <HeaderTwo />
               <MainImg />
               <Videos />
               <Lifelike />
@@ -64,7 +62,7 @@ const App = () => {
           path="/login"  
           element={
             isAuthenticated ? (
-              <Navigate to="/uploadfile" />
+              <Navigate to="/uploadFile" />
             ) : (
               <Login setIsAuthenticated={setIsAuthenticated} />
             )

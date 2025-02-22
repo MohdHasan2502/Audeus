@@ -35,7 +35,8 @@ const Login = () => {
         });
  
 
-        navigate("/uploadfile");
+        navigate("/uploadFile");
+        window.location.reload();
    
       } else {
         toast.error("Invalid username or password", {
@@ -45,7 +46,7 @@ const Login = () => {
       }
     } catch (error) {
  
-      console.error("Login error:", error.response ? error.response.data : error.message);
+      // console.error("Login error:", error.response ? error.response.data : error.message);
  
       console.error("Login error:", error);
  
