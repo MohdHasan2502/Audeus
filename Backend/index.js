@@ -20,8 +20,9 @@ app.use(
 );
 
 // MongoDB Connection
+const mongoURI = process.env.MONGO_URI;
 mongoose
-  .connect("mongodb://127.0.0.1:27017/Audeus")
+  .connect(mongoURI)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Error connecting to MongoDB:", err));
 
