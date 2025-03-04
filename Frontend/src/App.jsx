@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../src/components/Header";
-import HeaderTwo from "./components/HeaderTwo";
+import HeaderTwo from "./components/HeaderTwo.jsx";
 import MainImg from "../src/components/MainImg";
 import Videos from "../src/components/Videos";
 import Lifelike from "../src/components/Lifelike";
