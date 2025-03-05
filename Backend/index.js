@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 const Routes = require('./routes/userRoutes');
+const port=  3000;
 
 // Middleware
 app.use(express.json());
@@ -28,9 +29,11 @@ mongoose
 
 // Use Routes
 app.use('/user', Routes);
+app.use('/',(req,res)=>res.send('Welcome to the backend'));
 
 // Server
-const port=process.env.PORT || 3001;
+
+
 app.listen(3000, function () {
   console.log(`Server is running on ${port}`);
 });
