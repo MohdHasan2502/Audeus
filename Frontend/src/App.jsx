@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../src/components/Header";
-import HeaderTwo from "../src/components/HeaderTwo.jsx";
+import HeaderTwo from "../src/components/HeaderTwo";
 // import HeaderTwo from "../src/components/HeaderTwo";
 import MainImg from "../src/components/MainImg";
 import Videos from "../src/components/Videos";
