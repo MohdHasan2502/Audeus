@@ -13,7 +13,7 @@ const Videos = () => {
                 muted
                 playsInline
               >
-                <source src="/public/videos/vid1.mp4" type="video/mp4" />
+                <source src="/videos/vid1.mp4" type="video/mp4" />
               </video>
               <p className="mt-2 text-center text-lg font-semibold">Sign Up</p>
               <span>Create an account and get started in under 60 seconds</span>
@@ -27,7 +27,7 @@ const Videos = () => {
                 muted
                 playsInline
               >
-                <source src="/public/videos/vid2.mp4" type="video/mp4" />
+                <source src="/videos/vid2.mp4" type="video/mp4" />
               </video>
               <p className="mt-2 text-center text-lg font-semibold">
                 Upload Your Documents
@@ -46,7 +46,7 @@ const Videos = () => {
                 muted
                 playsInline
               >
-                <source src="/public/videos/vid3.mp4" type="video/mp4" />
+                <source src="/videos/vid3.mp4" type="video/mp4" />
               </video>
               <p className="mt-2 text-center text-lg font-semibold">
                 Choose a Voice & Listen
