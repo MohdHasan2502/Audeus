@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Logo from "./../../IMG/icon.png";
+import Logo from "./../../public/IMG/icon.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 

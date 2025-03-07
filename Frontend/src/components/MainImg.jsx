@@ -9,7 +9,7 @@ const MainImg = () => {
         {/* Image */}
         <img
           className="relative w-full sm:w-3/4 object-cover z-10 rounded-lg"
-          src="../IMG/speech.jpg"
+          src="/IMG/speech.jpg"
           alt="speed"
         />
       </div>
@@ -21,42 +21,42 @@ const MainImg = () => {
       <div className="flex flex-wrap justify-center items-center gap-4 mt-4 px-4">
         <img
           className="w-24 h-24 object-contain"
-          src="../IMG/img1.png"
+          src="/IMG/img1.png"
           alt="University_of_Chicago-Logo"
         />
         <img
           className="w-24 h-24 object-contain"
-          src="../IMG/img2.png"
+          src="/IMG/img2.png"
           alt="UCLA"
         />
         <img
           className="w-24 h-24 object-contain"
-          src="../IMG/img3.jpg"
+          src="/IMG/img3.jpg"
           alt="illinois"
         />
         <img
           className="w-24 h-24 object-contain"
-          src="../IMG/microsof.png"
+          src="/IMG/microsof.png"
           alt="microsoft"
         />
         <img
           className="w-24 h-24 object-contain"
-          src="../IMG/meta.png"
+          src="/IMG/meta.png"
           alt="meta"
         />
         <img
           className="w-24 h-24 object-contain"
-          src="../IMG/merck-logo.png"
+          src="/IMG/merck-logo.png"
           alt="merck"
         />
         <img
           className="w-24 h-24 object-contain"
-          src="../IMG/coinbase.png"
+          src="/IMG/coinbase.png"
           alt="coinbase"
         />
         <img
           className="w-24 h-24 object-contain"
-          src="../Img/snap.png"
+          src="/Img/snap.png"
           alt="snap"
         />
       </div>

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "./../../IMG/icon.png";
+import Logo from "./../../public/IMG/icon.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import HomeIcon from "@mui/icons-material/Home";
 import AppsIcon from "@mui/icons-material/Apps";

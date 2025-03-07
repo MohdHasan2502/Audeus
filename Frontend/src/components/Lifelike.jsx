@@ -97,10 +97,10 @@ const Lifelike = () => {
       <div className="flex flex-row justify-between items-start gap-10 p-6 mt-28 w-full flex-wrap">
         {/* Left Side: Icons */}
         <div className="flex flex-row justify-start items-center gap-10 p-6 w-full max-w-lg flex-wrap">
-          <img src="../img/adobe.png" alt="adobe" className="w-20 h-20" />
-          <img src="../img/word.png" alt="word" className="w-20 h-20" />
-          <img src="../img/epub.png" alt="epub" className="w-20 h-20" />
-          <img src="../img/doc.png" alt="doc" className="w-20 h-20" />
+          <img src="/public/Img/adobe.png" alt="adobe" className="w-20 h-20" />
+          <img src="/public/Img/word.png" alt="word" className="w-20 h-20" />
+          <img src="/public/Img/epub.png" alt="epub" className="w-20 h-20" />
+          <img src="/public/Img/doc.png" alt="doc" className="w-20 h-20" />
         </div>
 
         {/* Right Side: Text Content */}

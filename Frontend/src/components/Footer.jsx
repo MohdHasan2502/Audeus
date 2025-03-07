@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             {/* Logo */}
             <div className="flex flex-col items-center md:items-start">
-              <img src="../img/icon.png" alt="icon" className="w-12 h-12" />
+              <img src="/public/img/icon.png" alt="icon" className="w-12 h-12" />
               <h1 className="text-2xl font-bold text-gray-800">audeus</h1>
             </div>
             {/* Navigation Links */}
@@ -55,7 +55,7 @@ const Footer = () => {
                   className="transition-transform transform hover:scale-110"
                 >
                   <img
-                    src="../img/facebook.png"
+                    src="/public/img/facebook.png"
                     alt="Facebook"
                     className="w-12 h-12 object-contain"
                   />
@@ -67,7 +67,7 @@ const Footer = () => {
                   className="transition-transform transform hover:scale-110"
                 >
                   <img
-                    src="../img/tiktok.png"
+                    src="/public/img/tiktok.png"
                     alt="TikTok"
                     className="w-6 h-6 object-contain"
                   />
@@ -79,7 +79,7 @@ const Footer = () => {
                   className="transition-transform transform hover:scale-110"
                 >
                   <img
-                    src="../img/instagram.png"
+                    src="/public/img/instagram.png"
                     alt="Instagram"
                     className="w-6 h-6 object-contain"
                   />
@@ -91,7 +91,7 @@ const Footer = () => {
                   className="transition-transform transform hover:scale-110"
                 >
                   <img
-                    src="../img/twitter.png"
+                    src="/public/img/twitter.png"
                     alt="Twitter"
                     className="w-6 h-6 object-contain"
                   />
@@ -103,7 +103,7 @@ const Footer = () => {
                   className="transition-transform transform hover:scale-110"
                 >
                   <img
-                    src="../img/youtube.png"
+                    src="/public/img/youtube.png"
                     alt="YouTube"
                     className="w-6 h-6 object-contain"
                   />
