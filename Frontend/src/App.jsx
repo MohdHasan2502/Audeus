@@ -1,36 +1,29 @@
-import { useState, useEffect } from "react";
-import Header from "../src/components/Header";
-import MainImg from "../src/components/MainImg";
-import Videos from "../src/components/Videos";
-import Lifelike from "../src/components/Lifelike";
-import BlueBackground from "../src/components/BlueBackground";
-import FrequentQuestions from "./components/FrequentQuestions.jsx";
-import Footer from "../src/components/Footer";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import Login from "../src/components/Login.jsx";
-import Signup from "../src/components/Signup.jsx";
-import UploadFile from "../src/components/UploadFile.jsx";
-import Reader from "./components/Reader.jsx";
+import { useState, useEffect, lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
+// Lazy load components to improve performance
+const Header = lazy(() => import("./components/Header"));
+const MainImg = lazy(() => import("./components/MainImg"));
+const Videos = lazy(() => import("./components/Videos"));
+const Lifelike = lazy(() => import("./components/Lifelike"));
+const BlueBackground = lazy(() => import("./components/BlueBackground"));
+const FrequentQuestions = lazy(() => import("./components/FrequentQuestions"));
+const Footer = lazy(() => import("./components/Footer"));
+const Login = lazy(() => import("./components/Login"));
+const Signup = lazy(() => import("./components/Signup"));
+const UploadFile = lazy(() => import("./components/UploadFile"));
+const Reader = lazy(() => import("./components/Reader"));
+
 const App = () => {
-  // State for authentication status
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check for token in localStorage on initial load
+  // Check authentication token on app load
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    if (token) {
-      setIsAuthenticated(true);
-    }
+    setIsAuthenticated(!!token);
   }, []);
 
-  // Handle Logout
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     setIsAuthenticated(false);
@@ -38,61 +31,46 @@ const App = () => {
 
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header isAuthenticated={isAuthenticated} 
-                handleLogout={handleLogout}/>
-              <MainImg />
-              <Videos />
-              <Lifelike />
-              <BlueBackground />
-              <FrequentQuestions />
-              <Footer />
-            </>
-          }
-        />
-
-        {/* Login Page Route */}
-        <Route 
-          path="/login"  
-          element={
-            isAuthenticated ? (
-              <Navigate to="/uploadFile" />
-            ) : (
-              <Login setIsAuthenticated={setIsAuthenticated} />
-            )
-          }
-        />
-
-        {/* Signup Page Route */}
-        <Route path="/signup" element={<Signup />} />
-
-        {/* Protected Routes */}
-        <Route 
-          path="/uploadfile/*" 
-          element={
-            isAuthenticated ? (
-              <ProtectedRoutes />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+                <MainImg />
+                <Videos />
+                <Lifelike />
+                <BlueBackground />
+                <FrequentQuestions />
+                <Footer />
+              </>
+            }
+          />
+          {/* Login Route */}
+          <Route
+            path="/login"
+            element={isAuthenticated ? <Navigate to="/uploadfile" /> : <Login setIsAuthenticated={setIsAuthenticated} />}
+          />
+          {/* Signup Route */}
+          <Route path="/signup" element={<Signup />} />
+          {/* Protected Routes */}
+          <Route
+            path="/uploadfile/*"
+            element={isAuthenticated ? <ProtectedRoutes /> : <Navigate to="/login" />}
+          />
+        </Routes>
+      </Suspense>
     </Router>
   );
 };
 
-
-// Component for handling protected routes
+// Nested Routes for UploadFile and Reader
 const ProtectedRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<UploadFile />} />
-      <Route path="/reader" element={<Reader />} />
+      <Route path="reader" element={<Reader />} />
     </Routes>
   );
 };
