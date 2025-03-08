@@ -1,26 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
+    extensions: ['.js', '.jsx'],
     alias: {
-      'pdfjs-dist': path.resolve(__dirname, 'node_modules/pdfjs-dist/legacy/build'),
+      'pdfjs-dist': 'pdfjs-dist/webpack', // Fixes the eval() issue
     },
   },
   optimizeDeps: {
-    include: ['pdfjs-dist/legacy/build/pdf.worker.min.js'],
+    include: ['pdfjs-dist/build/pdf.worker.min.js'],
   },
   build: {
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-        pdfWorker: 'pdfjs-dist/legacy/build/pdf.worker.min.js',
-      },
-      external: ['pdfjs-dist'],
-    },
     commonjsOptions: {
       transformMixedEsModules: true, // Ensures compatibility with pdfjs-dist
     },
