@@ -25,7 +25,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/user/signup",
+        "https://audeus-backend.vercel.app//user/signup",
         formData
       );
       console.log(response.data);
