@@ -103,7 +103,7 @@ To deploy the application, consider using:
 
 ## Screenshots
 
-![App Screenshot](https://postimg.cc/G8VdKdN4)
+![App Screenshot](https://files.catbox.moe/wy3hru.png)
 
  
 ## Contributing
